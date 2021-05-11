@@ -5,6 +5,7 @@ describe('Calculator', () => {
   let container;
   beforeEach(() => {
     container = render(<App/>)
+    
   })
 
   it('should change running total on number enter', () => {
@@ -36,7 +37,20 @@ describe('Calculator', () => {
     fireEvent.click(buttonSubtract)
     fireEvent.click(button4)
     fireEvent.click(buttonEquals)
-    expect(runningTotal).toHaveTextContent('3')
-   });
+    expect(runningTotal).toHaveTextContent('3');
+   })
+
+  it("should multiply 3 by 5 ", () => {
+     const button3 = container.getByTestId('number3');
+     const buttonMultiply = container.getByTestId('multiply');
+     const button5 = container.getByTestId('number5');
+     const buttonEquals = container.getByTestId('equals');
+     const runningTotal = container.getByTestId('running-total');
+     fireEvent.click(button3)
+     fireEvent.click(buttonMultiply)
+     fireEvent.click(button5)
+     fireEvent.click(buttonEquals)
+     expect(runningTotal).toHaveTextContent('15');
+   })
 })
 
