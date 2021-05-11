@@ -67,4 +67,21 @@ describe("Calculator", () => {
     cy.get('.display').should('contain', '-5')
 
   })
+
+  it('should display the correct result from a calculation with large numebrs', () =>{
+    cy.get('#number1').click()
+    cy.get('#number0').click()
+    cy.get('#number0').click()
+    cy.get('#number0').click()
+    cy.get('#number0').click()
+    cy.get('#operator_multiply').click();
+    cy.get('#number1').click()
+    cy.get('#number0').click()
+    cy.get('#number0').click()
+    cy.get('#number0').click()
+    cy.get('#number0').click()
+    cy.get('#operator_equals').click();
+    cy.get('.display').should('contain', '100000000')
+
+  })
 })
