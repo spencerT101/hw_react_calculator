@@ -35,5 +35,14 @@ describe("Calculator", () => {
     cy.get('#operator_equals').click();
     cy.get('.display').should('contain', '5')
   })
+  it('should update the display with the correct result from the divide operator', () => {
+    cy.get('#number9').click();
+    cy.get('#operator_divide').click();
+    cy.get('#number3').click();
+    cy.get('#operator_equals').click();
+    cy.get('.display').should('contain', '3')
 
+
+
+  } )
 })
