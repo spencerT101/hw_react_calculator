@@ -41,8 +41,30 @@ describe("Calculator", () => {
     cy.get('#number3').click();
     cy.get('#operator_equals').click();
     cy.get('.display').should('contain', '3')
+  })
+  it('should display the correct result from a chain of multiple operations', () => {
+    cy.get('#number9').click()
+    cy.get('#operator_multiply').click();
+    cy.get('#number4').click();
+    cy.get('#operator_equals').click();
+    cy.get('#operator_divide').click();
+    cy.get('#number6').click();
+    cy.get('#operator_add').click();
+    cy.get('#number4').click();
+    cy.get('#operator_equals').click();
+    cy.get('#operator_subtract').click();
+    cy.get('#number8').click();
+    cy.get('#operator_equals').click();
+    cy.get('.display').should('contain', '2')
+  })
+  it('should display the correct result for a negative calculation', () =>{
+    cy.get('#number1').click()
+    cy.get('#number0').click()
+    cy.get('#operator_subtract').click();
+    cy.get('#number1').click()
+    cy.get('#number5').click()
+    cy.get('#operator_equals').click();
+    cy.get('.display').should('contain', '-5')
 
-
-
-  } )
+  })
 })
