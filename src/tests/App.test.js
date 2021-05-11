@@ -77,7 +77,7 @@ describe('Calculator', () => {
     expect(runningTotal).toHaveTextContent('21')
    })
    
-   it( 'should chain multiple operations together', () => {
+it( 'should chain multiple operations together', () => {
     const button2 = container.getByTestId('number2');
     const button1 = container.getByTestId('number1');
     const buttonAdd = container.getByTestId('add')
@@ -97,6 +97,23 @@ describe('Calculator', () => {
     fireEvent.click(button4)
     fireEvent.click(buttonEquals)
     expect(runningTotal).toHaveTextContent('1')
+})
+it( 'should clear the running total without affecting the calculation', () => {
+  const button6 = container.getByTestId('number6')
+  const buttonMultiply = container.getByTestId('multiply')
+  const buttonSubtract = container.getByTestId('subtract')
+  const buttonEquals = container.getByTestId('equals');
+  const buttonClear = container.getByTestId('clear')
+  const runningTotal = container.getByTestId('running-total');
+  fireEvent.click(button6)
+  fireEvent.click(buttonMultiply)
+  fireEvent.click(button6)
+  fireEvent.click(buttonSubtract)
+  fireEvent.click(button6)
+  fireEvent.click(buttonEquals)
+  fireEvent.click(buttonClear)
+  expect(runningTotal).toHaveTextContent('0')
+
 })
 
 })
