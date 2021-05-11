@@ -13,4 +13,20 @@ describe("Calculator", () => {
     cy.get('#number2').click();
     cy.get('.display').should('contain', '372')
   })
+  it('should update the display with the multiply operator', () =>{
+    cy.get('#number7').click();
+    cy.get('#operator_multiply').click();
+    cy.get('#number3').click();
+    cy.get('#operator_equals').click();
+    cy.get('.display').should('contain', '21')
+  })
+
+  it('should update the display with the add arithmetical operator', () =>{
+    cy.get('#number7').click();
+    cy.get('#operator_add').click();
+    cy.get('#number3').click();
+    cy.get('#operator_equals').click();
+    cy.get('.display').should('contain', '10')
+  })
+
 })
