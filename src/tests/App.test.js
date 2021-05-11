@@ -17,12 +17,12 @@ describe('Calculator', () => {
   })
   it('should add 1 to 4 and get 5', () => {
     const button1 = container.getByTestId('number1');
-    const buttonadd = container.getByTestId('add')
+    const buttonAdd = container.getByTestId('add')
     const button4 = container.getByTestId('number4');
     const buttonEquals =container.getByTestId('equals');
     const runningTotal = container.getByTestId('running-total');
     fireEvent.click(button1)
-    fireEvent.click(buttonadd)
+    fireEvent.click(buttonAdd)
     fireEvent.click(button4)
     fireEvent.click(buttonEquals)
     expect(runningTotal).toHaveTextContent('5')
@@ -66,6 +66,17 @@ describe('Calculator', () => {
     fireEvent.click(button7)
     fireEvent.click(buttonEquals)
     expect(runningTotal).toHaveTextContent('3');
+   })
+
+   it( 'should concatenate multiple number button clicks', () => {
+    const button2 = container.getByTestId('number2');
+    const buttonAdd = container.getByTestId('add')
+    const button1 = container.getByTestId('number1');
+    const runningTotal = container.getByTestId('running-total');
+    fireEvent.click(button2)
+    fireEvent.click(button1)
+    expect(runningTotal).toHaveTextContent('21')
+    
 
    })
 })
