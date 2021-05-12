@@ -78,6 +78,11 @@ function App() {
     setRunningTotal(parseFloat(previousTotal) / parseFloat(number));
   }
 
+  // added a const variable called decimal and setting a function to recognise the '.' operator.
+  // const decimal = (number) =>{
+  //   setRunningTotal(parseFloat(runningTotal) . parseFloat(number))
+  // }
+
 
   return (
     <div className="container">

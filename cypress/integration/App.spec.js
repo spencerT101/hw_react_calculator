@@ -68,7 +68,7 @@ describe("Calculator", () => {
 
   })
 
-  it('should display the correct result from a calculation with large numebrs', () =>{
+  it('should display the correct result from a calculation with large numbers', () =>{
     cy.get('#number1').click()
     cy.get('#number0').click()
     cy.get('#number0').click()
@@ -84,4 +84,14 @@ describe("Calculator", () => {
     cy.get('.display').should('contain', '100000000')
 
   })
+  it('should display the correct result from a calculation with decimals', () =>{
+  cy.get('#number5').click();
+  cy.get('#operator_divide').click();
+  cy.get('#number1').click();
+  cy.get('#number0').click();
+  cy.get('#operator_equals').click();
+  cy.get('.display').should('contain', '0.5')
+
+})
+
 })
