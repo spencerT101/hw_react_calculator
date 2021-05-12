@@ -93,5 +93,11 @@ describe("Calculator", () => {
   cy.get('.display').should('contain', '0.5')
 
 })
-
+it('should display Not A Number when divided by zero', () =>{
+  cy.get('#number5').click();
+  cy.get('#operator_divide').click();
+  cy.get('#number0').click();
+  cy.get('#operator_equals').click();
+  cy.get('.display').should('contain', 'Not A Number')
+})
 })

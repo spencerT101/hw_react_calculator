@@ -9,6 +9,8 @@ function App() {
   const [previousOperator, setPreviousOperator] = useState(null); 
   const [newTotal, setNewTotal] = useState(true); 
 
+
+
   const numberClick =  (number) => {
     if ( runningTotal === 0 || newTotal){
       setRunningTotal("");
@@ -25,6 +27,9 @@ function App() {
     }
     setRunningTotal(0);
   }
+
+ 
+  
 
   const operatorClick = (operator) => {
     // if there was a previous operator recorded as having been clicked, perform
@@ -60,6 +65,7 @@ function App() {
 
       setPreviousTotal(runningTotal);
       setNewTotal(true);
+    
   }
 
   const add = (number) => {
@@ -75,13 +81,19 @@ function App() {
   }
 
   const divide = (number) => {
+    
+    if (number === 0){
+      setRunningTotal("Not A Number") 
+      }
+    
+    else
+      {
     setRunningTotal(parseFloat(previousTotal) / parseFloat(number));
+    }
   }
 
-  // added a const variable called decimal and setting a function to recognise the '.' operator.
-  // const decimal = (number) =>{
-  //   setRunningTotal(parseFloat(runningTotal) . parseFloat(number))
-  // }
+
+  
 
 
   return (
@@ -92,6 +104,7 @@ function App() {
       handleNumber={numberClick} 
       handleOperator={operatorClick} 
       handleClear={clearClick}
+     
       />
     </div>
   </div>
